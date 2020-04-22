@@ -4977,7 +4977,7 @@ let ProfileComponent = class ProfileComponent {
         this.profileService = profileService;
     }
     ngOnInit() {
-        this.profileService.getProfile();
+        this.profileService.getProfile(true);
     }
     actionItems(actionType, item) {
         this.actionType = actionType;

@@ -5159,7 +5159,7 @@ var ProfileComponent = /** @class */ (function () {
         this.profileService = profileService;
     }
     ProfileComponent.prototype.ngOnInit = function () {
-        this.profileService.getProfile();
+        this.profileService.getProfile(true);
     };
     ProfileComponent.prototype.actionItems = function (actionType, item) {
         this.actionType = actionType;
