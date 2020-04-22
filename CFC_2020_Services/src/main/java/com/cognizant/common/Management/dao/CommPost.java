@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class CommPost {
 	
 	@Id
-	private Long id;
+	private int id;
 	private String userName;
 	private String productType;
 	private String subType;
@@ -25,25 +25,22 @@ public class CommPost {
 	private String postType;
 	private String status;
 	private String quantity;
-	//private String name;
+	private String name;
 	
 	public CommPost() {
 	}
 	
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
 	public String getUserName() {
 		return userName;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -117,6 +114,14 @@ public class CommPost {
 	@Override
 	public String toString() {
 		return String.format("CommPost[id=%d, userName='%s', productType='%s', subType='%s', lattitude='%s', longitude='%s', postType='%s', "
-				+ "status='%s', quantity='%s']", id, userName, productType, subType, latitude, longitude, postType, status, quantity);
+				+ "status='%s', quantity='%s', name='%s']", id, userName, productType, subType, latitude, longitude, postType, status, quantity,name);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

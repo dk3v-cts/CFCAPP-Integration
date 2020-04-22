@@ -100,7 +100,7 @@ public class CommonRepositoryDao {
 			dist = dist * 60 * 1.1515;
 			dist = dist * 1.609344;
 			if (dist <= 10) {
-				resultSet.setId((Long) commpostRec.get("id"));
+				resultSet.setId((int) commpostRec.get("id"));
 				resultSet.setLatitude((String) commpostRec.get("latitude"));
 				resultSet.setLongitude((String) commpostRec.get("longitude"));
 				resultSet.setPostType((String) commpostRec.get("post_type"));
@@ -108,6 +108,7 @@ public class CommonRepositoryDao {
 				resultSet.setSubType((String) commpostRec.get("sub_type"));
 				resultSet.setProductType((String) commpostRec.get("product_Type"));
 				resultSet.setUserName((String) commpostRec.get("user_name"));
+				resultSet.setName((String) commpostRec.get("name"));
 				if(commPost.containsKey((String) commpostRec.get("user_name"))){
 					List<CommPost> list = commPost.get((String) commpostRec.get("user_name"));
 					list.add(resultSet);

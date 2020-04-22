@@ -88,7 +88,6 @@ public class CommonManagementService {
 		Map<String, Object> serviceResponseMap = new HashMap<String, Object>();
 		Map<String, Object> detailsResponse = new HashMap<String, Object>();
 		Request lRequest = pCommonRequest.getRequest();
-		System.out.println("search");
 		Map<String, List<CommPost>>  commPost = (Map<String, List<CommPost>>) commonRepositoryDao.retrieveCommonManagementDetails(lRequest);
 		if (!commPost.isEmpty()) {
 			serviceResponseMap.put("details", commPost);

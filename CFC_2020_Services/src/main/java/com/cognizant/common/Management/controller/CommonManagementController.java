@@ -62,7 +62,6 @@ public class CommonManagementController {
 	//search
 	@RequestMapping(method=RequestMethod.POST, path="/api/product/search")
 	public ResponseEntity<Map<String, Object>> search(@RequestBody CommonRequest pCommonRequest,HttpServletResponse response) {
-		System.out.println("Entry search service");
 		Map<String,Object> responseMap = pCommonManagementService.getSearchDetailsResponse(pCommonRequest,response);
 		return new ResponseEntity<Map<String, Object>>(responseMap, HttpStatus.OK);
 	}
