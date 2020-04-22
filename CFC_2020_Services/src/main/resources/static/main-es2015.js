@@ -1277,9 +1277,9 @@ let UtilityService = UtilityService_1 = class UtilityService {
             userInfo: data,
             loggedIn: !!(Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(data, 'token', false))
         };
-        this.authData.next(val);
         UtilityService_1.setStorageData({ key: 'token', value: token });
         UtilityService_1.setStorageData({ key: 'user', value: data });
+        this.authData.next(val);
         this.enableChat.next(!!token);
     }
     setLocation(data) {
