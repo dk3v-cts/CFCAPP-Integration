@@ -37,9 +37,9 @@ public class CommonRepositoryDao {
 	public int saveCommonManagementDetails(Request pRequest) {  
 		String postType = null;
 		if (CommonConstants.PUBLISH.equalsIgnoreCase(pRequest.getRequestType())) {
-			postType = CommonConstants.AVAILABLE;
+			postType = CommonConstants.PUBLISH;
 		} else if (CommonConstants.REQUEST.equalsIgnoreCase(pRequest.getRequestType())) {
-			postType = CommonConstants.POSTED;
+			postType = CommonConstants.REQUEST;
 		}
 	    
 		/*String query="insert into commpost values('"+id+"','"+pRequest.getLatitude()+"','"+pRequest.getLongitude()+"','"+pRequest.getRequestType()+"','"
