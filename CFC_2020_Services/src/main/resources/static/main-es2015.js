@@ -461,8 +461,8 @@ let ProfileService = class ProfileService {
             }
         });
     }
-    getProfile() {
-        if (!this.profilePosts || !this.profilePosts.length) {
+    getProfile(forceFlag = false) {
+        if (forceFlag || !this.profilePosts || !this.profilePosts.length) {
             this.getProfilePosts();
         }
     }

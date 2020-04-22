@@ -474,8 +474,9 @@ var ProfileService = /** @class */ (function () {
             }
         });
     };
-    ProfileService.prototype.getProfile = function () {
-        if (!this.profilePosts || !this.profilePosts.length) {
+    ProfileService.prototype.getProfile = function (forceFlag) {
+        if (forceFlag === void 0) { forceFlag = false; }
+        if (forceFlag || !this.profilePosts || !this.profilePosts.length) {
             this.getProfilePosts();
         }
     };

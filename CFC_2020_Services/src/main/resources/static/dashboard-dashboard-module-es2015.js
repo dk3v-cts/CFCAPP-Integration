@@ -4795,7 +4795,7 @@ let ItemInfoComponent = class ItemInfoComponent {
         this.ajax.sendRequest(this.crudConstants[this.actionType].serviceName, payload).subscribe(data => {
             if (!!data) {
                 this.emitSuccess(true);
-                this.profileService.getProfile();
+                this.profileService.getProfile(true);
             }
             else {
                 this.emitSuccess(false);
