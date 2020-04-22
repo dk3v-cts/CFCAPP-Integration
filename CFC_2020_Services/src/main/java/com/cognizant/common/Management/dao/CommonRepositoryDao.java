@@ -135,7 +135,7 @@ public class CommonRepositoryDao {
 		 */
 		
 		String query="insert into commnotify values('"+id+"','"+pRequest.getLatitude()+"','"+pRequest.getLongitude()+"','"+pRequest.getPostedUserName()+"','"
-			    +pRequest.getReceiverUserName()+"','"+new Timestamp(pRequest.getSubmittedDate().getTime())+"')"; 
+			    +pRequest.getReceiverUserName()+"','"+pRequest.getSubmittedDate()+"')"; 
 				
 		id++;
 		return jdbcTemplate.update(query);

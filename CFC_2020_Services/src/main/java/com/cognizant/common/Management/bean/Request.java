@@ -53,7 +53,7 @@ public class Request {
 	private String currentDate;
 	
 	@JsonProperty("submittedDate")
-	private Date submittedDate;
+	private String submittedDate;
 
 	public String getType() {
 		return type;
@@ -151,11 +151,11 @@ public class Request {
 		this.currentDate = currentDate;
 	}
 
-	public Date getSubmittedDate() {
+	public String getSubmittedDate() {
 		return submittedDate;
 	}
 
-	public void setSubmittedDate(Date submittedDate) {
+	public void setSubmittedDate(String submittedDate) {
 		this.submittedDate = submittedDate;
 	}
 	

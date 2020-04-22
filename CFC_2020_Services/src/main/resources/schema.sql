@@ -32,5 +32,5 @@ posted_user_name VARCHAR(100),
 receiver_user_name VARCHAR(100),
 latitude VARCHAR(250),
 longitude VARCHAR(250),
-submission_date DATE
+submission_date VARCHAR(50)
 );
