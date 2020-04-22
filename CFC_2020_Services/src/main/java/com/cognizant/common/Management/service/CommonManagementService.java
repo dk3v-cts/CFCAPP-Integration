@@ -266,7 +266,7 @@ public class CommonManagementService {
 			details.put("productType", comm.getProductType());
 			details.put("subType", comm.getSubType());
 			details.put("quantity", comm.getQuantity());
-			details.put("postType", comm.getStatus());
+			details.put("postType", comm.getPostType());
 			details.put("id", comm.getId());
 			detailsList.add(details);
 		}
