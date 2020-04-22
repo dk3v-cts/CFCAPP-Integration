@@ -4579,7 +4579,6 @@ let DashboardComponent = class DashboardComponent {
             };
             this.util.setLocation(this.coordinates);
             this.getProducts('GET_ITEMS_LIST');
-            this.searchPost(true);
         }
     }
     getProducts(serviceName) {
@@ -4592,6 +4591,9 @@ let DashboardComponent = class DashboardComponent {
                 subType: serviceName === 'SEARCH_POSTS' ? Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(this.searchForm, 'value.subType') : ''
             }
         };
+        if (serviceName === 'GET_ITEMS_LIST') {
+            this.searchPost(true);
+        }
         this.ajax.sendRequest(serviceName, payload).subscribe(data => {
             if (!!data) {
                 this.users = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["map"])(Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(data, 'response.details', []), val => {
@@ -4603,7 +4605,7 @@ let DashboardComponent = class DashboardComponent {
                     val['userLevelPostType'] = userLevelPostType;
                     return val;
                 });
-                this.searchForm.reset();
+                // this.searchForm.reset();
             }
         }, err => this.users = []);
     }

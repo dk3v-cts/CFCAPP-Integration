@@ -4753,7 +4753,6 @@ var DashboardComponent = /** @class */ (function () {
             };
             this.util.setLocation(this.coordinates);
             this.getProducts('GET_ITEMS_LIST');
-            this.searchPost(true);
         }
     };
     DashboardComponent.prototype.getProducts = function (serviceName) {
@@ -4767,6 +4766,9 @@ var DashboardComponent = /** @class */ (function () {
                 subType: serviceName === 'SEARCH_POSTS' ? Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(this.searchForm, 'value.subType') : ''
             }
         };
+        if (serviceName === 'GET_ITEMS_LIST') {
+            this.searchPost(true);
+        }
         this.ajax.sendRequest(serviceName, payload).subscribe(function (data) {
             if (!!data) {
                 _this.users = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["map"])(Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(data, 'response.details', []), function (val) {
@@ -4778,7 +4780,7 @@ var DashboardComponent = /** @class */ (function () {
                     val['userLevelPostType'] = userLevelPostType;
                     return val;
                 });
-                _this.searchForm.reset();
+                // this.searchForm.reset();
             }
         }, function (err) { return _this.users = []; });
     };
