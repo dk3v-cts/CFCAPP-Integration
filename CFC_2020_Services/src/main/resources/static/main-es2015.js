@@ -48,7 +48,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"height: 100%;\" class=\"root-container\">\r\n  <mat-toolbar color=\"primary\">\r\n    <mat-toolbar-row>\r\n      <button mat-icon-button (click)=\"sidenav.toggle()\" fxShow=\"true\" fxHide.gt-sm>\r\n        <mat-icon>menu</mat-icon>\r\n      </button>\r\n      <span class=\"header\">I Can Help!</span>\r\n    </mat-toolbar-row>\r\n  </mat-toolbar>\r\n\r\n  <mat-sidenav-container fxFlexFill>\r\n    <mat-sidenav #sidenav>\r\n      <mat-nav-list>\r\n        <div class=\"account-info\">\r\n          <i class=\"material-icons\">account_circle</i>\r\n          <span>Welcome {{userData?.userInfo?.name || 'Guest'}}</span>\r\n        </div>\r\n        <a href=\"javascript: void(0)\" mat-list-item (click)=\"navigate('/dashboard')\">Browse Products <i\r\n            class=\"material-icons\">\r\n            shop\r\n          </i></a>\r\n        <a href=\"javascript: void(0)\" mat-list-item (click)=\"navigate('/dashboard/profile')\">Profile Settings <i\r\n            class=\"material-icons\">\r\n            receipt\r\n          </i></a>\r\n        <a href=\"javascript: void(0)\" *ngIf=\"userData?.loggedIn\" (click)=\"navigate('/auth/sign-in', true)\"\r\n          mat-list-item>Sign Out <i class=\"material-icons\">\r\n            power_settings_new\r\n          </i></a>\r\n        <a href=\"javascript: void(0)\" *ngIf=\"!userData?.loggedIn\" (click)=\"navigate('/auth/sign-in')\" mat-list-item>Sign\r\n          In <i class=\"material-icons\">\r\n            exit_to_app\r\n          </i></a>\r\n      </mat-nav-list>\r\n    </mat-sidenav>\r\n    <mat-sidenav-content fxFlexFill>\r\n      <div class=\"app-container\">\r\n        <router-outlet></router-outlet>\r\n        <app-spinner></app-spinner>\r\n        <div class=\"notification-container\" *ngIf=\"userData?.loggedIn\">\r\n          <button class=\"notification\" [ngbPopover]=\"notificationAcc\" (shown)=\"(profileService.readNotificationCount = profileService.notificationDetails?.length)\">\r\n            <i class=\"fa fa-bell\" aria-hidden=\"true\"></i>\r\n            <span *ngIf=\"(profileService.notificationDetails?.length - profileService.readNotificationCount)\"\r\n              class=\"count\">{{profileService.notificationDetails?.length - profileService.readNotificationCount}}</span>\r\n          </button>\r\n        </div>\r\n        <div *ngIf=\"utilService.chatOptions.enable\" class=\"chat-container\">\r\n          <div class=\"chat-content\"\r\n            [ngClass]=\"{'active': utilService.chatOptions.open, 'mimimized': utilService.chatOptions.minimize}\">\r\n            <div class=\"chat-control\" *ngIf=\"utilService.chatOptions.open\">\r\n              <button (click)=\"utilService.chatOptions.minimize = true\" *ngIf=\"!utilService.chatOptions.minimize\"\r\n                class=\"minimized-btn\">\r\n                <i class=\"fa fa-window-minimize\" aria-hidden=\"true\"></i>\r\n              </button>\r\n              <button (click)=\"utilService.chatOptions.minimize = false\" *ngIf=\"utilService.chatOptions.minimize\">\r\n                <i class=\"fa fa-window-maximize\" aria-hidden=\"true\"></i>\r\n              </button>\r\n              <button (click)=\"utilService.chatOptions.open = false\"\r\n                (click)=\"utilService.chatOptions.open = false; utilService.chatOptions.minimize = false;\">\r\n                <i class=\"fa fa-close\"></i>\r\n              </button>\r\n            </div>\r\n            <iframe class=\"chat-window\" [src]=\"loginUrl | safe\">\r\n            </iframe>\r\n          </div>\r\n          <a class=\"chat-icon\" href=\"javascript: void(0)\" (click)=\"utilService.chatOptions.open = true\"\r\n            *ngIf=\"!utilService.chatOptions.open\">\r\n            <i class=\"fa fa-comments\" aria-hidden=\"true\"></i>\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </mat-sidenav-content>\r\n  </mat-sidenav-container>\r\n</div>\r\n<ng-template #notificationAcc>\r\n  <div clas=\"notification-content\">\r\n        <div *ngFor=\"let item of profileService.notificationDetails | orderBy: notficationDate; let i  index\" class=\"notify-msg\" style =\"background-color: #0b85f1; color: #fff; margin: 3px; padding: 5px;\" (mouseover)=\"pop($event, 'hover')\" (mouseout)=\"pop($event, 'out')\">\r\n          <a href=\"mailto:{{item.postedUserName}}?Subject=Hi I am available now\" style=\"color: #fff; font-weight: bold; text-decoration: underline;\" target=\"_blank\">{{item.postedUserName}}</a> have notified you on {{item.notficationDate | date:'MMM d, yyyy' }}\r\n        </div>\r\n  </div>\r\n</ng-template>"
+module.exports = "<div style=\"height: 100%;\" class=\"root-container\">\r\n  <mat-toolbar color=\"primary\">\r\n    <mat-toolbar-row>\r\n      <button mat-icon-button (click)=\"sidenav.toggle()\" fxShow=\"true\" fxHide.gt-sm>\r\n        <mat-icon>menu</mat-icon>\r\n      </button>\r\n      <span class=\"header\">I Can Help!</span>\r\n    </mat-toolbar-row>\r\n  </mat-toolbar>\r\n\r\n  <mat-sidenav-container fxFlexFill>\r\n    <mat-sidenav #sidenav>\r\n      <mat-nav-list>\r\n        <div class=\"account-info\">\r\n          <i class=\"material-icons\">account_circle</i>\r\n          <span>Welcome {{userData?.userInfo?.name || 'Guest'}}</span>\r\n        </div>\r\n        <a href=\"javascript: void(0)\" mat-list-item (click)=\"navigate('/dashboard')\">Browse Products <i\r\n            class=\"material-icons\">\r\n            shop\r\n          </i></a>\r\n        <a href=\"javascript: void(0)\" mat-list-item (click)=\"navigate('/dashboard/profile')\">Profile <i\r\n            class=\"material-icons\">\r\n            receipt\r\n          </i></a>\r\n        <a href=\"javascript: void(0)\" *ngIf=\"userData?.loggedIn\" (click)=\"navigate('/auth/sign-in', true)\"\r\n          mat-list-item>Sign Out <i class=\"material-icons\">\r\n            power_settings_new\r\n          </i></a>\r\n        <a href=\"javascript: void(0)\" *ngIf=\"!userData?.loggedIn\" (click)=\"navigate('/auth/sign-in')\" mat-list-item>Sign\r\n          In <i class=\"material-icons\">\r\n            exit_to_app\r\n          </i></a>\r\n      </mat-nav-list>\r\n    </mat-sidenav>\r\n    <mat-sidenav-content fxFlexFill>\r\n      <div class=\"app-container\">\r\n        <router-outlet></router-outlet>\r\n        <app-spinner></app-spinner>\r\n        <div class=\"notification-container\" *ngIf=\"userData?.loggedIn\">\r\n          <button class=\"notification\" [ngbPopover]=\"notificationAcc\" (shown)=\"profileService.readNotificationCount = profileService.notificationDetails?.length\" [disablePopover]=\"(profileService.notificationDetails?.length - profileService.readNotificationCount) < 1\">\r\n            <i class=\"fa fa-bell\" aria-hidden=\"true\"></i>\r\n            <span *ngIf=\"(profileService.notificationDetails?.length - profileService.readNotificationCount) > 0\"\r\n              class=\"count\">{{profileService.notificationDetails?.length - profileService.readNotificationCount}}</span>\r\n          </button>\r\n        </div>\r\n        <div *ngIf=\"utilService.chatOptions.enable\" class=\"chat-container\">\r\n          <div class=\"chat-content\"\r\n            [ngClass]=\"{'active': utilService.chatOptions.open, 'mimimized': utilService.chatOptions.minimize}\">\r\n            <div class=\"chat-control\" *ngIf=\"utilService.chatOptions.open\">\r\n              <button (click)=\"utilService.chatOptions.minimize = true\" *ngIf=\"!utilService.chatOptions.minimize\"\r\n                class=\"minimized-btn\">\r\n                <i class=\"fa fa-window-minimize\" aria-hidden=\"true\"></i>\r\n              </button>\r\n              <button (click)=\"utilService.chatOptions.minimize = false\" *ngIf=\"utilService.chatOptions.minimize\">\r\n                <i class=\"fa fa-window-maximize\" aria-hidden=\"true\"></i>\r\n              </button>\r\n              <button (click)=\"utilService.chatOptions.open = false\"\r\n                (click)=\"utilService.chatOptions.open = false; utilService.chatOptions.minimize = false;\">\r\n                <i class=\"fa fa-close\"></i>\r\n              </button>\r\n            </div>\r\n            <iframe class=\"chat-window\" [src]=\"loginUrl | safe\">\r\n            </iframe>\r\n          </div>\r\n          <a class=\"chat-icon\" href=\"javascript: void(0)\" (click)=\"utilService.chatOptions.open = true\"\r\n            *ngIf=\"!utilService.chatOptions.open\">\r\n            <i class=\"fa fa-comments\" aria-hidden=\"true\"></i>\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </mat-sidenav-content>\r\n  </mat-sidenav-container>\r\n</div>\r\n<ng-template #notificationAcc>\r\n  <div clas=\"notification-content\">\r\n        <div *ngFor=\"let item of profileService.notificationDetails | orderBy: notficationDate; let i  index\" class=\"notify-msg\" style =\"background-color: #0b85f1; color: #fff; margin: 3px; padding: 5px;\" (mouseover)=\"pop($event, 'hover')\" (mouseout)=\"pop($event, 'out')\">\r\n          <a href=\"mailto:{{item.postedUserName}}?Subject=Hi I am available now\" style=\"color: #fff; font-weight: bold; text-decoration: underline;\" target=\"_blank\">{{item.postedUserName}}</a> have notified you on {{item.notficationDate | date:'MMM d, yyyy' }}\r\n        </div>\r\n  </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -183,6 +183,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _services_profile_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/profile.service */ "./src/app/services/profile.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+
 
 
 
@@ -194,11 +196,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(_router, utilService, modalService, ajax, profileService, popOverConfig) {
+    constructor(_router, utilService, modalService, ajax, _document, profileService, popOverConfig) {
         this._router = _router;
         this.utilService = utilService;
         this.modalService = modalService;
         this.ajax = ajax;
+        this._document = _document;
         this.profileService = profileService;
         this.popOverConfig = popOverConfig;
         this.subscriptions = [];
@@ -208,9 +211,12 @@ let AppComponent = class AppComponent {
     navigate(url, signOut = false) {
         if (signOut) {
             const payload = {
-                request: Object.assign({}, Object(lodash__WEBPACK_IMPORTED_MODULE_8__["get"])(this.userData, 'userInfo.userName'))
+                request: {
+                    userName: Object(lodash__WEBPACK_IMPORTED_MODULE_8__["get"])(this.userData, 'userInfo.userName')
+                }
             };
             this.ajax.sendRequest('LOGOUT', payload).subscribe(data => {
+                this._document.cookie = `nickname=;Path=/; Expires=${new Date()};`;
                 this.utilService.clearAllStorageData();
                 const modalRef = this.modalService.open(_shared_components__WEBPACK_IMPORTED_MODULE_5__["CommonModalComponent"], { centered: true });
                 modalRef.componentInstance.errorObj = _shared_constants_constants__WEBPACK_IMPORTED_MODULE_6__["CONSTANTS"].SIGN_OUT;
@@ -240,7 +246,7 @@ let AppComponent = class AppComponent {
         this.subscriptions.push(authSubscription);
         const chatSubscription = this.utilService.enableChat.subscribe((data) => {
             this.utilService.chatOptions.enable = !!data;
-            this.loginUrl = `${window.location.host}/chat/index.html?fromEmail=${Object(lodash__WEBPACK_IMPORTED_MODULE_8__["get"])(this.userData, 'userInfo.userName')}&nickname=${Object(lodash__WEBPACK_IMPORTED_MODULE_8__["get"])(this.userData, 'userInfo.name')}`;
+            this.loginUrl = `/chat/index.html?fromEmail=${Object(lodash__WEBPACK_IMPORTED_MODULE_8__["get"])(this.userData, 'userInfo.userName')}&nickname=${Object(lodash__WEBPACK_IMPORTED_MODULE_8__["get"])(this.userData, 'userInfo.name')}`;
         });
         this.subscriptions.push(chatSubscription);
     }
@@ -251,7 +257,7 @@ let AppComponent = class AppComponent {
         const ele = Object(lodash__WEBPACK_IMPORTED_MODULE_8__["get"])(event, 'target', null);
         if (!!ele && ele.classList.contains('notify-msg')) {
             event.target.style.backgroundColor = action == 'hover' ? '#0b8426' : '#0b8426d9';
-            event.target.style.transform = action == 'hover' ? 'scale(1.02)' : 'scale(1)';
+            event.target.style.transform = action == 'hover' ? 'scale(1.01)' : 'scale(1)';
         }
     }
 };
@@ -260,6 +266,7 @@ AppComponent.ctorParameters = () => [
     { type: _shared_services__WEBPACK_IMPORTED_MODULE_3__["UtilityService"] },
     { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModal"] },
     { type: _shared_services__WEBPACK_IMPORTED_MODULE_3__["AjaxService"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_10__["DOCUMENT"],] }] },
     { type: _services_profile_service__WEBPACK_IMPORTED_MODULE_9__["ProfileService"] },
     { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbPopoverConfig"] }
 ];
@@ -274,11 +281,11 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providers: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbPopoverConfig"]],
         styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
     }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_10__["DOCUMENT"])),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _shared_services__WEBPACK_IMPORTED_MODULE_3__["UtilityService"],
         _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModal"],
-        _shared_services__WEBPACK_IMPORTED_MODULE_3__["AjaxService"],
-        _services_profile_service__WEBPACK_IMPORTED_MODULE_9__["ProfileService"],
+        _shared_services__WEBPACK_IMPORTED_MODULE_3__["AjaxService"], Object, _services_profile_service__WEBPACK_IMPORTED_MODULE_9__["ProfileService"],
         _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbPopoverConfig"]])
 ], AppComponent);
 
@@ -438,6 +445,7 @@ let ProfileService = class ProfileService {
     constructor(ajax, util) {
         this.ajax = ajax;
         this.util = util;
+        this.profilePosts = [];
         this.readNotificationCount = 0;
         this.currentUser = this.util.getUser();
     }
@@ -454,7 +462,7 @@ let ProfileService = class ProfileService {
         });
     }
     getProfile() {
-        if (!this.profilePosts) {
+        if (!this.profilePosts || !this.profilePosts.length) {
             this.getProfilePosts();
         }
     }
@@ -781,7 +789,7 @@ const CONSTANTS = {
         signIn: {
             text: 'Please provide valid data for a proper Sign In'
         },
-        logOut: {
+        logout: {
             text: 'We are Sorry, we couldn\'t sign out your session right now. Please try again later'
         },
         postItems: {
@@ -804,7 +812,7 @@ const CONSTANTS = {
             header: 'We are Sorry',
             text: 'We couldn\'t remove your post right now. Please try again later'
         },
-        getItemsList: {
+        getItem: {
             header: 'We are Sorry',
             text: 'We couldn\'t find any post in your location. Please try again later'
         },
@@ -895,7 +903,7 @@ const SERVICE_CONSTANTS = {
             serviceName: 'auth', operationName: 'signIn', method: 'POST'
         },
         'LOGOUT': {
-            serviceName: 'auth', operationName: 'logOut', method: 'POST'
+            serviceName: 'auth', operationName: 'logout', method: 'POST'
         },
         'GET_ITEMS_LIST': {
             serviceName: 'product', operationName: 'getItem', method: 'POST'
@@ -1258,6 +1266,11 @@ let UtilityService = UtilityService_1 = class UtilityService {
         };
         this.authData.next(null);
     }
+    // public clearCookie(name?: string) {
+    //   if (!!name) {
+    //     this._document.cookie = `${name}=;Path=/; Expires=${new Date()};`;
+    //   }
+    // }
     setUser(data) {
         const token = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(data, 'token', null);
         const val = {
