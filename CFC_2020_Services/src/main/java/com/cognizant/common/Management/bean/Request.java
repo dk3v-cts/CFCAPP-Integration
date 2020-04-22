@@ -22,6 +22,9 @@ public class Request {
 	@JsonProperty("subType")
 	private String subType;
 	
+	@JsonProperty("name")
+	private String name;
+
 	@JsonProperty("userName")
 	private String userName;
 	
@@ -155,4 +158,13 @@ public class Request {
 	public void setSubmittedDate(Date submittedDate) {
 		this.submittedDate = submittedDate;
 	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }

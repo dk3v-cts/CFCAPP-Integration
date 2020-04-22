@@ -21,6 +21,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -88,6 +89,7 @@ public class CommonManagementService {
 		Map<String, Object> serviceResponseMap = new HashMap<String, Object>();
 		Map<String, Object> detailsResponse = new HashMap<String, Object>();
 		Request lRequest = pCommonRequest.getRequest();
+		System.out.println("search");
 		Map<String, List<CommPost>>  commPost = (Map<String, List<CommPost>>) commonRepositoryDao.retrieveCommonManagementDetails(lRequest);
 		if (!commPost.isEmpty()) {
 			serviceResponseMap.put("details", commPost);
@@ -217,6 +219,12 @@ public class CommonManagementService {
 		session = request.getSession(false);
 		if (session != null) {
 			session.invalidate();
+		}
+		Cookie[] cookies = request.getCookies();
+		for (Cookie cookie : cookies) {
+			if(cookie.getName().equalsIgnoreCase("nickname")){
+				cookie.setMaxAge(0);
+			}
 		}
 
 		int dpUpdateStatus = commonRepositoryDao.updateLoggedInState(pCommonRequest.getRequest().getUserName());

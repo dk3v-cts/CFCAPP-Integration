@@ -29,7 +29,7 @@ public class CommonManagementController {
 	@Autowired
 	private CommonManagementService pCommonManagementService;
 	
-	@RequestMapping(method=RequestMethod.POST, path="/common/operation")
+	@RequestMapping(method=RequestMethod.POST, path="/api/product/postItems")
 	public ResponseEntity<Map<String, Object>> commonPublish(@RequestBody CommonRequest pRequest) {
 		Map<String,Object> responseMap = pCommonManagementService.commonManagementDetails(pRequest);
 		return new ResponseEntity<Map<String, Object>>(responseMap, HttpStatus.OK);
@@ -62,6 +62,7 @@ public class CommonManagementController {
 	//search
 	@RequestMapping(method=RequestMethod.POST, path="/api/product/search")
 	public ResponseEntity<Map<String, Object>> search(@RequestBody CommonRequest pCommonRequest,HttpServletResponse response) {
+		System.out.println("Entry search service");
 		Map<String,Object> responseMap = pCommonManagementService.getSearchDetailsResponse(pCommonRequest,response);
 		return new ResponseEntity<Map<String, Object>>(responseMap, HttpStatus.OK);
 	}

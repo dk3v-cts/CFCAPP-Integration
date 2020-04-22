@@ -42,8 +42,10 @@ public class CommonRepositoryDao {
 			postType = CommonConstants.POSTED;
 		}
 	    
-		String query="insert into commpost values('"+id+"','"+pRequest.getLatitude()+"','"+pRequest.getLongitude()+"','"+pRequest.getRequestType()+"','"
-	    +pRequest.getQuantity()+"','"+postType+"','"+pRequest.getSubType()+"','"+pRequest.getType()+"','"+pRequest.getUserName()+"')"; 
+		/*String query="insert into commpost values('"+id+"','"+pRequest.getLatitude()+"','"+pRequest.getLongitude()+"','"+pRequest.getRequestType()+"','"
+	    +pRequest.getQuantity()+"','"+postType+"','"+pRequest.getSubType()+"','"+pRequest.getType()+"','"+pRequest.getUserName()+"')"; */
+		String query="insert into commpost values('"+id+"','"+pRequest.getUserName()+"','"+pRequest.getName()+"','"+pRequest.getType().toLowerCase()+"','"
+                +pRequest.getSubType().toLowerCase()+"','"+pRequest.getLatitude()+"','"+pRequest.getLongitude()+"','"+pRequest.getRequestType()+"','"+postType+"','"+pRequest.getQuantity()+"')";
 		
 		id++;
 	    return jdbcTemplate.update(query);
@@ -100,7 +102,7 @@ public class CommonRepositoryDao {
 			dist = dist * 60 * 1.1515;
 			dist = dist * 1.609344;
 			if (dist <= 10) {
-				resultSet.setId((int) commpostRec.get("id"));
+				resultSet.setId((Long) commpostRec.get("id"));
 				resultSet.setLatitude((String) commpostRec.get("latitude"));
 				resultSet.setLongitude((String) commpostRec.get("longitude"));
 				resultSet.setPostType((String) commpostRec.get("post_type"));
@@ -108,7 +110,6 @@ public class CommonRepositoryDao {
 				resultSet.setSubType((String) commpostRec.get("sub_type"));
 				resultSet.setProductType((String) commpostRec.get("product_Type"));
 				resultSet.setUserName((String) commpostRec.get("user_name"));
-				resultSet.setName((String) commpostRec.get("name"));
 				if(commPost.containsKey((String) commpostRec.get("user_name"))){
 					List<CommPost> list = commPost.get((String) commpostRec.get("user_name"));
 					list.add(resultSet);
