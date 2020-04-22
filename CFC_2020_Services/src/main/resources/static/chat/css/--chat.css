@@ -1,0 +1,60 @@
+.container {
+  width: 970px !important;
+}
+
+.navbar h1 {
+	margin-top: 15px;
+	font-size: 22px;
+	float:left;
+	color: #fff;
+}
+
+.chat-box {
+	height:400px;
+	overflow: auto;
+	border-radius: 10px;
+	background: #2f4154;
+    border-radius: 10px;
+    margin-left: 2px;
+    width: 66%;
+}
+.chat-box h5{
+	color: lawngreen;
+}
+.msgs_area{
+	background: white;
+    height: 320px;
+    overflow: auto;
+    border-radius: 4px;
+    padding-left: 11px;
+}
+.usr_newmsg{
+	background: orange;
+    padding-left: 9px;
+    
+}
+.usr_newmsg a{
+	color: black;
+}
+.participants_box {
+	background: #2f4154;
+    border-radius: 10px;
+    border-right: 43px;
+    height: 400px;
+    
+}
+h5{
+	color: lawngreen;
+	font-size: 17px;
+}
+.usrs_box {
+	
+    background: white;
+    height: 320px;
+    overflow: auto;
+    padding-bottom: 10px;
+	
+}
+.usr_active{
+	color: lawngreen;
+}
