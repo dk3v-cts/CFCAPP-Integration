@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class CommPost {
 	
 	@Id
-	private Long id;
+	private int id;
 	private String userName;
 	private String productType;
 	private String subType;
@@ -30,12 +30,13 @@ public class CommPost {
 	public CommPost() {
 	}
 	
-	public Long getId() {
+
+	public int getId() {
 		return id;
 	}
 
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
