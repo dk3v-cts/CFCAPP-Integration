@@ -110,6 +110,7 @@ public class CommonRepositoryDao {
 				resultSet.setSubType((String) commpostRec.get("sub_type"));
 				resultSet.setProductType((String) commpostRec.get("product_Type"));
 				resultSet.setUserName((String) commpostRec.get("user_name"));
+				resultSet.setName((String) commpostRec.get("name"));
 				if(commPost.containsKey((String) commpostRec.get("user_name"))){
 					List<CommPost> list = commPost.get((String) commpostRec.get("user_name"));
 					list.add(resultSet);
