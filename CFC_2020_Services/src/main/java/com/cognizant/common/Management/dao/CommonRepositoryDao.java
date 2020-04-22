@@ -84,8 +84,8 @@ public class CommonRepositoryDao {
 		if(StringUtils.isNullOrEmpty(pRequest.getType()) ||  StringUtils.isNullOrEmpty(pRequest.getSubType())){
 			query = "SELECT * from COMMPOST";
 		}else{
-			query = "SELECT * from COMMPOST where product_Type='" + pRequest.getType() + "' and sub_type='"
-					+ pRequest.getSubType() + "'";
+			query = "SELECT * from COMMPOST where product_Type='" + pRequest.getType().toLowerCase() + "' and sub_type='"
+					+ pRequest.getSubType().toLowerCase() + "'";
 		}
 		List<Map<String, Object>> commpostRecs = jdbcTemplate.queryForList(query);
 		for (Map commpostRec : commpostRecs) {
