@@ -102,7 +102,7 @@ public class CommonRepositoryDao {
 			dist = dist * 60 * 1.1515;
 			dist = dist * 1.609344;
 			if (dist <= 10) {
-				resultSet.setId((Long) commpostRec.get("id"));
+				resultSet.setId((int) commpostRec.get("id"));
 				resultSet.setLatitude((String) commpostRec.get("latitude"));
 				resultSet.setLongitude((String) commpostRec.get("longitude"));
 				resultSet.setPostType((String) commpostRec.get("post_type"));
