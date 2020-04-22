@@ -259,8 +259,8 @@ public class CommonManagementService {
 		List<Map<String, Object>> detailsList = new ArrayList<Map<String, Object>>();
 		for(CommPost comm: commPost) {
 			Map<String, Object> details = new HashMap<String, Object>();
-			details.put("username", comm.getUserName());
-			//details.put("name", comm.getName());
+			details.put("userName", comm.getUserName());
+			details.put("name", comm.getName());
 			details.put("latitude", comm.getLatitude());
 			details.put("longitude", comm.getLongitude());
 			details.put("productType", comm.getProductType());
