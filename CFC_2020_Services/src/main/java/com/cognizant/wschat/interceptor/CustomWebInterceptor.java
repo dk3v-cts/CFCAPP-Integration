@@ -31,9 +31,11 @@ public class CustomWebInterceptor implements HandlerInterceptor {
 	    			if(params.length >1) {
 	    				request.getSession().setAttribute("nickname", params[1]);
 	    				response.setHeader("nickname",  params[1]);
-	    				Cookie nickNameCookie = new Cookie("nickname",params[1]);
+	    				String cookieVal = params[1];
+	    				
+	    				Cookie nickNameCookie = new Cookie("nickname",cookieVal);
 	    				nickNameCookie.setPath("/");
-	    				response.addCookie(new Cookie("nickname",params[1]));
+	    				response.addCookie(nickNameCookie);
 	    			}
 	    		}
 	    	}

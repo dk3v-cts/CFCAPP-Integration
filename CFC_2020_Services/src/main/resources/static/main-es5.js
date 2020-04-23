@@ -876,9 +876,9 @@ var CONSTANTS = {
             }
         },
         BALLOON_COLOR: {
-            'ICanHelp': '/assets/images/greenMarker.png',
-            'HelpMe': '/assets/images/redMarker.png',
-            'both': '/assets/images/yellowMarker.png'
+            'ICanHelp': 'http://maps.google.com/mapfiles/ms/icons/green.png',
+            'HelpMe': 'http://maps.google.com/mapfiles/ms/icons/red.png',
+            'both': 'http://maps.google.com/mapfiles/ms/icons/yellow.png'
         }
     },
     ITEM_INFO: {
