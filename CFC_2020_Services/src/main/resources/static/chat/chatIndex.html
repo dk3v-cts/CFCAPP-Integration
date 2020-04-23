@@ -43,6 +43,7 @@
 	    <!-- /.container -->
 	<script>
 $(document).ready(function(){
+	
 	 const getQueryParams = ( params, url ) => {
    	  
    	  let href = url;
@@ -57,8 +58,13 @@ $(document).ready(function(){
    	username.val(fromAdddress)
    	let nicknameparam = getQueryParams('nickname',window.location.href);
    	var nickname = $('#nickname');
-   	nickname.val(nicknameparam)
-     $("#frm1").submit();
+   	nickname.val(nicknameparam);
+   	debugger;
+   	if(fromAdddress !=null && nicknameparam!=null){
+     	$("#frm1").submit();
+   	}else{
+   		alert("empt")
+   	}
 });
 		</script>
 	</body>

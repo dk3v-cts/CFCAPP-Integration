@@ -12,8 +12,18 @@ public class CustomWebInterceptor implements HandlerInterceptor {
 	
 	@Override
 	 public boolean preHandle (HttpServletRequest request, HttpServletResponse response, Object handler) {
-		System.out.println("preHandle");
-	    	if(null!=request.getHeader("Referer")) {
+		if(request.getRequestURL().toString().contains("logout")){
+			System.out.println("logout fired");
+			Cookie[] cookies = request.getCookies();
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equalsIgnoreCase("nickname")){ 
+					System.out.println("Cookie found deleted");
+					cookie.setMaxAge(0);
+					response.addCookie(cookie);
+				}
+			}
+		}
+	    	if(null!=request.getHeader("Referer") ) {
 	    		String referredUrl = request.getHeader("Referer");
 	    		if(referredUrl.contains("nickname=")) {
 

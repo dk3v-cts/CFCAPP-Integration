@@ -224,6 +224,7 @@ public class CommonManagementService {
 		for (Cookie cookie : cookies) {
 			if(cookie.getName().equalsIgnoreCase("nickname")){
 				cookie.setMaxAge(0);
+				response.addCookie(cookie);
 			}
 		}
 

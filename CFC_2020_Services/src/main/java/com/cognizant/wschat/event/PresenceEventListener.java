@@ -51,7 +51,7 @@ public class PresenceEventListener {
 	
 	@EventListener
 	private void handleSessionDisconnect(SessionDisconnectEvent event) {
-		
+		System.out.println("handleSessionDisconnect");
 		Optional.ofNullable(participantRepository.getParticipant(event.getSessionId()))
 				.ifPresent(login -> {
 					messagingTemplate.convertAndSend(logoutDestination, new LogoutEvent(login.getUsername(),login.getNickname()));

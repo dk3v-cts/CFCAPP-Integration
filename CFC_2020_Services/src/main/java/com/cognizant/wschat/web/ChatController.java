@@ -56,7 +56,7 @@ public class ChatController {
 	    public void addUser(@Payload ChatMessage message, SimpMessageHeaderAccessor headerAccessor) {
 		 String username = message.getUsername();
 		 String nickname = message.getNickname();
-		 System.out.println(nickname);
+		 System.out.println("loginuser" +nickname);
 		 LoginEvent loginEvent = new LoginEvent(username,nickname);
 		 simpMessagingTemplate.convertAndSend("/topic/chat.login", loginEvent);
 			 
