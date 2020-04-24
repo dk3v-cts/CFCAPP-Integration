@@ -1,0 +1,6 @@
+applications:
+   - name: ICanHelp2020
+     random-route: true
+     path: target/ICanHelpApp-2.2.1.RELEASE.war
+     memory: 256M
+     instances: 1
