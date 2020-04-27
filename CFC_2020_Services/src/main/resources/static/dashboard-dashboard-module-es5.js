@@ -4749,7 +4749,7 @@ var DashboardComponent = /** @class */ (function () {
                 latitude: Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(position, 'coords.latitude') || Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(position, 'coords.lat') || src_app_shared_constants_constants__WEBPACK_IMPORTED_MODULE_4__["CONSTANTS"].MARKER_CONFIG.DEFAULT_COORD.latitude,
                 longitude: Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(position, 'coords.longitude') || Object(lodash__WEBPACK_IMPORTED_MODULE_2__["get"])(position, 'coords.lng') || src_app_shared_constants_constants__WEBPACK_IMPORTED_MODULE_4__["CONSTANTS"].MARKER_CONFIG.DEFAULT_COORD.longitude,
                 draggable: true,
-                zoom: 13
+                zoom: 12
             };
             this.util.setLocation(this.coordinates);
             this.getProducts('GET_ITEMS_LIST');
