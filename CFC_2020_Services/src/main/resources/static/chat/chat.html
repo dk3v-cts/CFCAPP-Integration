@@ -111,7 +111,7 @@
 							<textarea name="" class="form-control type_msg" id="newMessageInput" autofocus
 								placeholder="Type your message..." ng-model="newMessage" ng-click="readMsg(sendTo)"
 								ng-keyup="$event.keyCode == 13 ? sendMessage() : startTyping()"></textarea>
-							<div class="input-group-append">
+							<div class="input-group-append" ng-click="sendMessage()">
 								<span class="input-group-text send_btn"><i class="fas fa fa-paper-plane"></i></span>
 							</div>
 						</div>
